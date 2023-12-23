@@ -2,18 +2,17 @@
 
 {% block content %}
 
-<h1>Signup</h1>
-
-{{error}}
-
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-
-    <button>
-        Signup
-    </button>
-</form>
+<main class="container">
+    <form method="POST" class=" card-body">
+        <h1>Signup</h1>
+        {{error}}
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>
+            Signup
+        </button>
+    </form>
+</main>
 
 
 {% endblock %}
