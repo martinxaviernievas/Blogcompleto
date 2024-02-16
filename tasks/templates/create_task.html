@@ -2,19 +2,29 @@
 
 {% block content %}
 
-    <h1>Create task</h1>
+    <main class="container">
+        <div class="row">
+             <div class="col-md-4 offset-md-4">
+                 <form action="/tasks/create/" method="POST" class="card card-body">
 
-    {{error}}
+                    <h1>Create task</h1>
 
-    <form action="/tasks/create/" method="POST">
-        {% csrf_token %}
+                     {{error}}
 
-        {{form}}
 
-        <button>
-            Save
-        </button>
+                    {% csrf_token %}
 
-    </form>
+                    {{form}}
+
+                 <button class="btn btn-primary">
+                    Save
+                 </button>
+
+             </form>
+            </div>
+        </div>
+        <div class="col-md-7 offset-md-4" id="copyright" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ; color: #2d2e2e;">
+            Copyright&copy; 2023 - Página creada por NievasMartin - Todos los derechos reservados</div>
+    </main>
 
 {% endblock %}

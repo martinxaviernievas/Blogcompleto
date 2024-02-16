@@ -3,32 +3,46 @@
 
 {% block content %}
 
+<main class="container">
+  <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <h1 class="text-secondary">{{task.title}}</h1>
 
-      <h1>{{task.title}}</h1>
+        {{error}}
+  
 
-      {{error}}
+        <form method="POST">
+          {% csrf_token %}
+          {{form.as_p}}
+          <button class="btn btn-primary">
+               Update
+          </button>
+        </form> 
 
-   <form method="POST">
-      {% csrf_token %}
-      {{form.as_p}}
-      <button>
-           Update
-      </button>
-    </form> 
-
-    <form action="{% url 'complete_task' task.id %}" method="POST">
-      {% csrf_token %}
-      <button>
-        Complete
-      </button>
-    </form>
-
-    <form action="{% url 'delete_task' task.id %}" method="POST">
-      {% csrf_token %}
-      <button>
-        Delete
-      </button>
-    </form>
+        <div>
+          
+    
+          <form action="{% url 'complete_task' task.id %}" method="POST">
+            {% csrf_token %}
+            <button class="btn btn-secondary">
+              Complete
+            </button>
+          </form>
+      
+          <form action="{% url 'delete_task' task.id %}" method="POST">
+            {% csrf_token %}
+            <button class="btn btn-danger">
+              Delete
+            </button>
+            <div id="copyright" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ; color: #2d2e2e;">
+              Copyright&copy; 2023 - Página creada por NievasMartin - Todos los derechos reservados
+          </div>
+          </form> 
+        </div>
+      </div>
+  </div>
+  
+</main>
 
 
 {% endblock %}
